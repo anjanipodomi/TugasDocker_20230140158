@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Input Mahasiswa</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #6f42c1, #f8f5ff);
+            font-family: Arial, sans-serif;
+        }
+
+        .page-wrapper {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px 15px;
+        }
+
+        .form-card {
+            width: 100%;
+            max-width: 560px;
+            background-color: #ffffff;
+            border: none;
+            border-radius: 18px;
+            box-shadow: 0 8px 30px rgba(111, 66, 193, 0.18);
+            overflow: hidden;
+        }
+
+        .form-header {
+            background: linear-gradient(135deg, #6f42c1, #8e61e9);
+            color: white;
+            padding: 24px;
+            text-align: center;
+        }
+
+        .form-header h3 {
+            margin: 0;
+            font-weight: bold;
+        }
+
+        .form-header p {
+            margin: 8px 0 0;
+            opacity: 0.95;
+        }
+
+        .form-body {
+            padding: 28px;
+        }
+
+        .form-label {
+            color: #4b2c91;
+            font-weight: 600;
+        }
+
+        .form-control {
+            border-radius: 10px;
+            padding: 10px 12px;
+            border: 1px solid #d9c8ff;
+        }
+
+        .form-control:focus {
+            border-color: #6f42c1;
+            box-shadow: 0 0 0 0.2rem rgba(111, 66, 193, 0.15);
+        }
+
+        .form-check-input:checked {
+            background-color: #6f42c1;
+            border-color: #6f42c1;
+        }
+
+        .btn-purple {
+            background-color: #6f42c1;
+            border: none;
+            color: white;
+            border-radius: 10px;
+            padding: 10px 18px;
+            font-weight: 500;
+        }
+
+        .btn-purple:hover {
+            background-color: #5e35b1;
+            color: white;
+        }
+
+        .btn-light-custom {
+            background-color: #f3edff;
+            color: #6f42c1;
+            border: 1px solid #d9c8ff;
+            border-radius: 10px;
+            padding: 10px 18px;
+            font-weight: 500;
+            text-decoration: none;
+        }
+
+        .btn-light-custom:hover {
+            background-color: #e7ddff;
+            color: #5e35b1;
+        }
+    </style>
+</head>
+<body>
+
+<div class="page-wrapper">
+    <div class="form-card">
+        <div class="form-header">
+            <h3>Form Input Mahasiswa</h3>
+            <p>Silakan isi data mahasiswa dengan lengkap</p>
+        </div>
+
+        <div class="form-body">
+            <form action="/submit" method="post">
+                <div class="mb-3">
+                    <label for="nama" class="form-label">Nama</label>
+                    <input type="text" id="nama" name="nama" class="form-control" placeholder="Masukkan nama mahasiswa" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="nim" class="form-label">NIM</label>
+                    <input type="text" id="nim" name="nim" class="form-control" placeholder="Masukkan NIM" required>
+                </div>
+
+                <div class="mb-4">
+                    <label class="form-label d-block">Jenis Kelamin</label>
+
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="jenisKelamin" id="laki" value="Laki-laki">
+                        <label class="form-check-label" for="laki">Laki-laki</label>
+                    </div>
+
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="jenisKelamin" id="perempuan" value="Perempuan">
+                        <label class="form-check-label" for="perempuan">Perempuan</label>
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-between">
+                    <a href="/home" class="btn-light-custom">Kembali</a>
+                    <button type="submit" class="btn btn-purple">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
