@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Data Mahasiswa</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #6f42c1, #f8f5ff);
+            font-family: Arial, sans-serif;
+        }
+
+        .page-wrapper {
+            padding: 40px 20px;
+        }
+
+        .main-card {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border: none;
+            border-radius: 18px;
+            box-shadow: 0 8px 30px rgba(111, 66, 193, 0.18);
+            overflow: hidden;
+        }
+
+        .header-section {
+            background: linear-gradient(135deg, #6f42c1, #8e61e9);
+            color: white;
+            padding: 24px 28px;
+        }
+
+        .header-section h3 {
+            margin: 0;
+            font-weight: bold;
+        }
+
+        .header-section p {
+            margin: 6px 0 0;
+            opacity: 0.95;
+        }
+
+        .content-section {
+            padding: 28px;
+        }
+
+        .top-action {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            margin: 0;
+            color: #4b2c91;
+            font-weight: bold;
+        }
+
+        .btn-purple {
+            background-color: #6f42c1;
+            border: none;
+            color: white;
+            border-radius: 10px;
+            padding: 10px 18px;
+            font-weight: 500;
+        }
+
+        .btn-purple:hover {
+            background-color: #5e35b1;
+            color: white;
+        }
+
+        .btn-logout {
+            background-color: #dc3545;
+            border: none;
+            color: white;
+            border-radius: 10px;
+            padding: 10px 18px;
+            font-weight: 500;
+            text-decoration: none;
+        }
+
+        .btn-logout:hover {
+            background-color: #bb2d3b;
+            color: white;
+        }
+
+        .table-wrapper {
+            border: 1px solid #e7ddff;
+            border-radius: 14px;
+            overflow: hidden;
+        }
+
+        .table {
+            margin-bottom: 0;
+        }
+
+        .table thead th {
+            background-color: #6f42c1;
+            color: white;
+            text-align: center;
+            vertical-align: middle;
+            border-color: #7e57c2;
+        }
+
+        .table tbody td {
+            text-align: center;
+            vertical-align: middle;
+            border-color: #eee;
+        }
+
+        .empty-text {
+            color: #7a6d9a;
+        }
+    </style>
+</head>
+<body>
+
+<div class="page-wrapper">
+    <div class="main-card">
+        <div class="header-section">
+            <h3>Anjani Dihapsari Podomi 20230140158</h3>
+            <p>Selamat datang di aplikasi data mahasiswa</p>
+        </div>
+
+        <div class="content-section">
+            <div class="top-action">
+                <h5 class="section-title">Data Mahasiswa</h5>
+                <div class="d-flex gap-2">
+                    <a href="/form" class="btn btn-purple">+ Input Data</a>
+                    <a href="/logout" class="btn-logout">Logout</a>
+                </div>
+            </div>
+
+            <div class="table-wrapper">
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th style="width: 10%;">No</th>
+                            <th>Nama</th>
+                            <th>NIM</th>
+                            <th>Jenis Kelamin</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:if="${#lists.isEmpty(dataMahasiswa)}">
+                            <td colspan="4" class="empty-text">Belum ada data</td>
+                        </tr>
+
+                        <tr th:each="mhs, stat : ${dataMahasiswa}">
+                            <td th:text="${stat.count}"></td>
+                            <td th:text="${mhs.nama}"></td>
+                            <td th:text="${mhs.nim}"></td>
+                            <td th:text="${mhs.jenisKelamin}"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
